@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input id="a">
+  <div id="b"></div>
+  <script>
+    var obj = {};
+    Object.defineProperty(obj, 'val', {
+      set: function(newVal) {
+        document.querySelector('#a').value = newVal == undefined ? '' : newVal;
+        document.querySelector('#b').innerHTML = newVal == undefined ? '' : newVal;
+      }
+    })
+    document.querySelector('#a').addEventListener('keyup', function(e) {
+      obj.val = e.target.value
+    })
+  </script>
+</body>
+</html>
